@@ -233,8 +233,13 @@ const submitButton = document.querySelector("#submit")
 const scriptURL = 'https://httpbin.org/post'
 
 form.addEventListener('submit', e => {
+  console.log(form);
   submitButton.disabled = true
+  //e.preventDefault()
   let requestBody = new FormData(form)
+  // for (const [key, value] of requestBody) {
+  //   console.log(key, value);
+  // }
   fetch(scriptURL, { method: 'POST', body: requestBody})
     .then(response => {
       alert('Success!', response)
